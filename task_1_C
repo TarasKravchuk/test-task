@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS csv_table (
+  column_1 VARCHAR(8) NOT NULL,
+  column_2 VARCHAR(8) NOT NULL,
+  column_3 VARCHAR(8) NOT NULL,
+  column_4 VARCHAR(8) NOT NULL,
+  column_5 VARCHAR(8) NOT NULL,
+  column_6 VARCHAR(8) NOT NULL);
+
+LOAD DATA INFILE '/var/lib/mysql-files/test.csv'
+INTO TABLE csv_table
+FIELDS TERMINATED BY ','
+ENCLOSED BY '';
+
+DELETE FROM csv_table WHERE (LEFT(column_2, 1) IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'));
